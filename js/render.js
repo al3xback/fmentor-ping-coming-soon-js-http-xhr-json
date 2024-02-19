@@ -41,8 +41,10 @@ export const renderSectionContent = (data) => {
 	const cardContentImageEl = sectionEl.querySelector(
 		'.card-content__image img'
 	);
-	cardContentImageEl.src = './images/' + image.source;
-	cardContentImageEl.alt = image.alt;
+	cardContentImageEl.src = './images/' + image;
+	cardContentImageEl.alt = image
+		.substring(0, image.indexOf('.'))
+		.replace('-', ' ');
 
 	removeLoading();
 	sectionWrapperEl.appendChild(sectionTemplateNode);
